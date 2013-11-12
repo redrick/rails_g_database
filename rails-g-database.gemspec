@@ -12,9 +12,15 @@ Gem::Specification.new do |s|
   s.summary     = "Missing rails database generator and more"
   s.license     = 'MIT'
 
-  s.files = Dir["{lib,test,features,rails_generators}/**/*", "[A-Z]*"]
+  s.files         = `git ls-files`.split($/)
+  s.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ["lib"]
 
   s.required_ruby_version     = '>= 1.9.3'
 
   s.add_dependency "rails" 
+
+  s.add_development_dependency "bundler", "~> 1.3"
+  s.add_development_dependency "rake"
 end
