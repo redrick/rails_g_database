@@ -1,6 +1,6 @@
 # Rails::G::Database
 
-TODO: Write a gem description
+Missing rails database generator (more info comming)
 
 ## Installation
 

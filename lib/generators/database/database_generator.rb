@@ -7,18 +7,8 @@ class DatabaseGenerator < Rails::Generators::NamedBase
 
   check_class_collision
 
-  attributes_with_defaults = {
-    "adapter" => "sqlite", 
-    "db"      => "file_name", 
-    "login"   => "root", 
-    "passwd"  => "", 
-    "host"    => "localhost", 
-    "port"    => "5432"
-  }
-
   def create_config_file
-    binding.pry
-    [:mysql, :pg, :sqlite].include?(adapter) ? \
+    ["mysql", "pg", "sqlite"].include?(adapter) ? \
     template("#{adapter.to_s}_yml.rb.erb", "config/database_#{file_name}.yml") : \
     raise("Wrong DB adapter chosen, please refer to 'rails g database' for more info")
   end
@@ -45,21 +35,24 @@ class DatabaseGenerator < Rails::Generators::NamedBase
     template "base_model.rb.erb", "app/models/#{file_name}/base.rb"
   end
 
-  # TODO it is ingoring input after adapter, fix !
-  attributes_with_defaults.each do |method_name, default|
-    define_method method_name.to_sym do
-      attributes.each do |attribute|
-        return attribute.name == method_name ? attribute.type : default
+  # TODO write gem for the db into gemfile and run bundle please :)
+  # def alter_gemfile
+  # end
+
+  private
+    attributes_with_defaults = {
+      "adapter" => "sqlite", 
+      "db"      => "", 
+      "login"   => "root", 
+      "passwd"  => "", 
+      "host"    => "localhost", 
+      "port"    => "5432"
+    }
+
+    attributes_with_defaults.each do |method_name, default|
+      define_method method_name.to_sym do
+        may_be_result = (attributes.find { |a| a.index_name.to_s == method_name.to_s })
+        (!may_be_result.nil? || may_be_result.is_a?(Rails::Generators::GeneratedAttribute)) ? may_be_result.type.to_s : default
       end
     end
-  end
-
-  # postgres = :name, :psswd, :host, :db, :port
-
-  # sqlite = :DB
-
-  # mysql = :name, :psswd, :host, :db
-
-  # send(db)
-
 end

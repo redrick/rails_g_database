@@ -8,13 +8,13 @@ login: &login
 
 
 development:
-  database: <%= send(db) %>_development
+  database: <%= db %>_development
   <<: *login
 
 test:
-  database: <%= send(db) %>_tests
+  database: <%= db %>_tests
   <<: *login
 
 production:
-  database: <%= send(db) %>_production
+  database: <%= db %>_production
   <<: *login
