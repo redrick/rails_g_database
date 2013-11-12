@@ -1,0 +1,9 @@
+Description:
+    Generator for setting up another database in Rails
+    Just What We were missing
+
+Example:
+    rails generate database 
+
+    This will create:
+      something
