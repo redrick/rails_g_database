@@ -52,7 +52,7 @@ class DatabaseGenerator < Rails::Generators::NamedBase
     attributes_with_defaults.each do |method_name, default|
       define_method method_name.to_sym do
         may_be_result = (attributes.find { |a| a.index_name.to_s == method_name.to_s })
-        (!may_be_result.nil? || may_be_result.is_a?(Rails::Generators::GeneratedAttribute)) ? may_be_result.type.to_s : default
+        (!may_be_result.nil? || may_be_result.is_a?(Rails::Generators::GeneratedAttribute)) ? may_be_result.type.to_s : ( (method_name.to_s == "db") ? file_name : default)
       end
     end
 end

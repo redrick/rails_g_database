@@ -3,7 +3,40 @@ Description:
     Just What We were missing
 
 Example:
-    rails generate database 
+    rails g database NAME adapter:adapter_name db:database_name login:username psswd:password host:host_name port:port_number
+
+    NAME 
+      name your database here (also applies on directory names and so on ...)
+
+    adapter
+      for now it supports:
+        * MySQL (as 'mysql')
+        * PostgreSQL (as 'pg')
+        * SQLite (as 'sqlite')
+
+    db  
+      you can change the name of your database othervise it falls back to the NAME of your db (in most cases leave blank :) )
+
+    login
+      except sqlite, you can specify your DB credentials (this one stand for username)
+
+    psswd
+      except sqlite, you can specify your DB credentials (this one stands for password)
+
+    host
+      except sqlite, you can specify your DB credentials (this one stands for host, in most cases localhost)
+
+    port
+      except sqlite, you can specify your DB credentials (this one stands for port, in case of postgresql 5432)
+  
 
     This will create:
-      something
+      config      config/database_store.yml
+      directory   db_store
+      file        db_store/.keep
+      directory   db_store/migrate
+      file        db_store/migrate/.keep
+      directory   app/models/store
+      seeds       db_store/seeds.rb
+      rake_task   lib/tasks/database_store.rake
+      base_model  app/models/store/base.rb
