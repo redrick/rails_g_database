@@ -4,7 +4,7 @@ require "rails_g_database/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "rails-g-database"
+  s.name        = "rails_g_database"
   s.version     = RailsGDatabase::VERSION
   s.authors     = ["redrick"]
   s.email       = ["cheaterblue@gmail.com"]
@@ -19,8 +19,9 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version     = '>= 1.9.3'
 
-  s.add_dependency "rails" 
+  s.add_dependency "rails", "~> 4.0.0" 
 
   s.add_development_dependency "bundler", "~> 1.3"
   s.add_development_dependency "rake"
+  s.add_development_dependency "pry"
 end

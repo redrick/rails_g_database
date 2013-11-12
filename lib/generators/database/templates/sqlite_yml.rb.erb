@@ -1,0 +1,13 @@
+# config/database_<%= %>.yml
+ 
+development: &development
+  adapter: sqlite3
+  database: db_store/data_store_development.sqlite3
+  pool: 5
+  timeout: 5000
+ 
+test:
+  adapter: sqlite3
+  database: db_store/data_store_test.sqlite3
+  pool: 5
+  timeout: 5000
