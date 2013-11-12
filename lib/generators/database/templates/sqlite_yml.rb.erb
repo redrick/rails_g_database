@@ -1,13 +1,16 @@
-# config/database_<%= %>.yml
+# config/database_<%= file_name %>.yml
  
-development: &development
+development:
   adapter: sqlite3
-  database: db_store/data_store_development.sqlite3
-  pool: 5
+  database: db_<%= file_name %>/<%= file_name %>_development.sqlite
   timeout: 5000
- 
+
 test:
   adapter: sqlite3
-  database: db_store/data_store_test.sqlite3
-  pool: 5
+  database: db_<%= file_name %>/<%= file_name %>_test.sqlite
+  timeout: 5000
+
+production:
+  adapter: sqlite3
+  database: db_<%= file_name %>/<%= file_name %>_production.sqlite
   timeout: 5000

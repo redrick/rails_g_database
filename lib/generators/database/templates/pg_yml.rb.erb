@@ -1,0 +1,20 @@
+# config/database_<%= file_name %>.yml
+
+login: &login
+  adapter: postgresql
+  host: <%= host %>
+  port: <%= port %>
+  username: <%= login %>
+  password: <%= passwd %>
+
+development:
+  database: <%= send(db) %>_development
+  <<: *login
+
+test:
+  database: <%= send(db) %>_tests
+  <<: *login
+
+production:
+  database: <%= send(db) %>_production
+  <<: *login
