@@ -9,7 +9,7 @@ module <%= class_name %>
     # since this class is only used to add custom config for AR
     self.abstract_class = true
  
-    databases = YAML::load(IO.read('config/database_<%= file_name %>.yml'))
+    databases = YAML::load(ERB.new(File.read('config/database_<%= file_name %>.yml')).result)
     establish_connection(databases[Rails.env])
  
   end
