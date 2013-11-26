@@ -74,3 +74,7 @@ To [rafaelchiti](https://github.com/rafaelchiti) for his [README](https://gist.g
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/redrick/rails_g_database/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
