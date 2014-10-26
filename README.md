@@ -1,6 +1,6 @@
 # Rails_g_database
 
-Missing rails database generator
+Missing rails database generator (now supporting rails 4)
 I have found many and many tutorials how to use more than one DB with Ruby on Rails
 finally I found [THIS](https://gist.github.com/redrick/7335229) gist forked from [rafaelchiti](https://github.com/rafaelchiti) that I believe is the right one and works for me the best :)
 I am still using multiple appplications with more databases, so I thought this would ease my pain :)
@@ -25,13 +25,13 @@ For now it lacks comments, but is functional for me :) here is the way to use it
 
     rails g database NAME adapter:adapter_name db:database_name login:username psswd:password host:host_name port:port_number
 
-#### NAME 
+#### NAME
 
   name your database here (also applies on directory names and so on ...)
 
 
 #### adapter
-  
+
   for now it supports:
 
   * MySQL (as 'mysql')
@@ -39,7 +39,7 @@ For now it lacks comments, but is functional for me :) here is the way to use it
   * SQLite (as 'sqlite')
 
 #### db
-  
+
   you can change the name of your database othervise it falls back to the NAME of your db (in most cases leave blank :) )
 
 #### login
@@ -51,7 +51,7 @@ For now it lacks comments, but is functional for me :) here is the way to use it
   except sqlite, you can specify your DB credentials (this one stands for password)
 
 #### host
-  
+
   except sqlite, you can specify your DB credentials (this one stands for host, in most cases localhost)
 
 #### port
@@ -77,4 +77,3 @@ To [rafaelchiti](https://github.com/rafaelchiti) for his [README](https://gist.g
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/redrick/rails_g_database/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
